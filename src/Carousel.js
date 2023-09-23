@@ -22,34 +22,20 @@ function Carousel({ photos, title }) {
 
   //Increments currCardIdx state by 1
   function goForward() {
+    if (currCardIdx === photos.length - 1) return;
     setCurrCardIdx(currCardIdx + 1);
   }
 
   function goBackward() {
+    if (currCardIdx === 0) return;
     setCurrCardIdx(currCardIdx - 1);
   }
-  // function goBackward() {
-  //   if (currCardIdx === 0) {
-  //     setCurrCardIdx(photos.length - 1);
-  //   } else {
-  //     setCurrCardIdx(currCardIdx - 1);
-  //   }
-  // }
 
-  const leftArrow = <i
-    className="bi bi-arrow-left-circle"
-    onClick={goBackward}
-  />;
-
-  const rightArrow = <i
-    className="bi bi-arrow-right-circle"
-    onClick={goForward}
-  />;
+  //TODO: store weird ternaries as variables
   return (
     <div className="Carousel">
       <h1>{title}</h1>
       <div className="Carousel-main">
-        {/* {currCardIdx > 0 && leftArrow} */}
         <i
           className="bi bi-arrow-left-circle"
           style={{ visibility: currCardIdx > 0 ? "visible" : "hidden" }}

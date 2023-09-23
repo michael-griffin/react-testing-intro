@@ -16,7 +16,7 @@ test("snapshot test for rendering Carousel", function () {
   expect(container).toMatchSnapshot();
 })
 
-
+//TODO: Mild refactor: expect after each event being fired.
 test("left arrows moves to previous image", function () {
   const {container, debug } = render(
     <Carousel
@@ -35,6 +35,7 @@ test("left arrows moves to previous image", function () {
 
   fireEvent.click(container.querySelector(".bi-arrow-left-circle"));
 
+  //TODO: don't actually need newImage
   const newImage = container.querySelector(".Card-image");
   expect(newImage.getAttribute("src")).toEqual("test1.com");
   expect(newImage.getAttribute("alt")).toEqual("testing image 1");
