@@ -1,6 +1,11 @@
+// import CoinFlipper, { randomFlip } from "./CoinFlipper";
 import CoinFlipper from "./CoinFlipper";
-import * as cf from "./CoinFlipper";
-cf.randomFlip = jest.fn();
+
+Math.random = jest.fn();
+
+beforeEach(function (){
+  Math.random.mockReturnValue(.6); //heads
+});
 
 import { render, fireEvent } from "@testing-library/react";
 
@@ -14,14 +19,8 @@ it("snapshot test - renders the same", function () {
   expect(container).toMatchSnapshot();
 });
 
-//TODO: ask why mocking only once did not work.
-//TODO: ask why innerText didn't work but innerHTML did
-it("image url changes with flip", function () {
-  cf.randomFlip.mockReturnValue("heads");
-  // cf.randomFlip.mockReturnValueOnce("heads");
-  // cf.randomFlip.mockReturnValueOnce("heads");
-  // random.choice.mockReturnValueOnce("A")
 
+it("image url changes with flip", function () {
   const { container } = render(<CoinFlipper />);
   const coinImage = container.querySelector(".flipImage");
   expect(coinImage.getAttribute("src")).toEqual(null);
@@ -33,8 +32,7 @@ it("image url changes with flip", function () {
 
 
 it("results string updates properly", function () {
-  cf.randomFlip.mockReturnValue("heads");
-
+  //TODO: check toHaveTextContent
   const {container } = render(<CoinFlipper />);
   const resultMsg = container.querySelector(".resultMsg");
   expect(resultMsg.innerHTML).toContain("Out of 0");

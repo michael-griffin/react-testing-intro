@@ -9,6 +9,7 @@ const TAILS_URL =
   "-D_Roosevelt_dime_reverse_transparent.png/911px-2017-D_Roosev" +
   "elt_dime_reverse_transparent.png";
 
+//TODO: pull out.
 function randomFlip() {
   return Math.random() > 0.5 ? "heads" : "tails";
 }
