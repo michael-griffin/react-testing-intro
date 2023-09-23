@@ -22,6 +22,7 @@ function CoinFlipper() {
   function handleClick() {
     const nextFlip = randomFlip();
     setFlips(() => {
+      console.log('flips is now: ', [...flips, nextFlip]);
       return [...flips, nextFlip];
     });
   }
@@ -35,12 +36,12 @@ function CoinFlipper() {
   return (
     <div>
       <h1>Let's flip a coin!</h1>
-      <img src={imgSource} style={{ width: "200px" }} className="flip-image" />
+      <img src={imgSource} style={{ width: "200px" }} className="flipImage" />
       <br></br>
       <button onClick={handleClick} className="flipButton">
         Flip Me!
       </button>
-      <p>
+      <p className="resultMsg">
         Out of {flips.length}, there have been {headsCount} heads and{" "}
         {flips.length - headsCount} tails.
       </p>

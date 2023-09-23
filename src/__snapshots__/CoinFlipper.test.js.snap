@@ -7,7 +7,7 @@ exports[`snapshot test - renders the same 1`] = `
       Let's flip a coin!
     </h1>
     <img
-      class="flip-image"
+      class="flipImage"
       style="width: 200px;"
     />
     <br />
@@ -16,7 +16,9 @@ exports[`snapshot test - renders the same 1`] = `
     >
       Flip Me!
     </button>
-    <p>
+    <p
+      class="resultMsg"
+    >
       Out of 
       0
       , there have been 
