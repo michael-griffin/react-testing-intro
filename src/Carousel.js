@@ -2,7 +2,6 @@ import { useState } from "react";
 import "./Carousel.css";
 import Card from "./Card";
 
-
 /** Carousel: displays images and arrows to navigate through them
  *
  * Props:
@@ -31,14 +30,16 @@ function Carousel({ photos, title }) {
     setCurrCardIdx(currCardIdx - 1);
   }
 
-  //TODO: store weird ternaries as variables
+  const showLeftArrow = currCardIdx > 0 ? "visible" : "hidden";
+  const showRightArrow = currCardIdx < photos.length - 1 ? "visible" : "hidden";
+
   return (
     <div className="Carousel">
       <h1>{title}</h1>
       <div className="Carousel-main">
         <i
           className="bi bi-arrow-left-circle"
-          style={{ visibility: currCardIdx > 0 ? "visible" : "hidden" }}
+          style={{ visibility: showLeftArrow }}
           onClick={goBackward}
         />
         <Card
@@ -49,7 +50,9 @@ function Carousel({ photos, title }) {
         />
         <i
           className="bi bi-arrow-right-circle"
-          style={{ visibility: (currCardIdx < photos.length - 1) ? "visible" : "hidden" }}
+          style={{
+            visibility: showRightArrow,
+          }}
           onClick={goForward}
         />
       </div>
