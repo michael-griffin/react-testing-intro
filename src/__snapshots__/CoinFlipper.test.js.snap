@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test - renders the same 1`] = `
+<div>
+  <div>
+    <h1>
+      Let's flip a coin!
+    </h1>
+    <img
+      class="flip-image"
+      style="width: 200px;"
+    />
+    <br />
+    <button
+      class="flipButton"
+    >
+      Flip Me!
+    </button>
+    <p>
+      Out of 
+      0
+      , there have been 
+      0
+       heads and
+       
+      0
+       tails.
+    </p>
+  </div>
+</div>
+`;
